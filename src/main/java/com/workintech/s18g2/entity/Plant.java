@@ -2,6 +2,10 @@ package com.workintech.s18g2.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.Generated;
 import lombok.NoArgsConstructor;
@@ -16,11 +20,14 @@ public class Plant {
     @Column(name = "id")
     private int id;
 
-
     @Column(name = "name")
+    @NotNull
+    @NotBlank
+    @Size(min = 2, max = 45, message = "Name size must be between 2-45")
     private String name;
 
     @Column(name = "price")
+    @DecimalMin("10")
     private double price;
 
 }

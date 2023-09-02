@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface FruitRepository extends JpaRepository<Fruit, Integer> {
 
-
     //JPQL kodu
     @Query("SELECT f FROM Fruit f ORDER BY f.price DESC")
     List<Fruit> getByPriceDesc();
